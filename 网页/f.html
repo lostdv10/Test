@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <!-- <textarea id="txt1" style="width:300px;height:300px"></textarea>
+  <textarea id="txt2" style="width:300px;height:300px"></textarea><br>
+  <p>Live Example</p>
+  <button onclick="delayedAlert();">Show an alert box after two seconds</button>
+  <p></p>
+  <button onclick="clearAlert();">Cancel alert before it happens</button> -->
+</body>
+
+
+<script>
+
+  //   var openText = (function(path){
+
+  //            var FSO = new ActiveXObject("Scripting.FileSystemObject");
+  //            !!! FSO.FileExists(path) && alert("文件不存在");
+  //            var forAppending = 1;
+  //            var Txt = FSO.OpenTextFile(path);
+  //            var str = Txt.ReadAll();
+  //            Txt.close();
+  //            FSO = null;
+  //            document.getElementById('txt1').value = str;
+  //            str = str.replace(/(".*")/g,"$1,").replace(/=/g,":").replace(/[^\]]+(?=\[|$)/g, function(o){return o.replace(/$/g,"}")}).
+  //            replace(/\[(.*?)\]/g, ",\"$1\" : {").replace(/,[\s|\n|\r]*\}/g,"}").replace(/^,/g,"var Json = {")+"}";
+  //            document.getElementById('txt2').value = str;
+  //            eval(str);
+  //            return function(argX,argY){
+  //                   return Json[argX][argY]
+  //            }
+  //   })('E:\\Paper.ini')
+
+
+
+  //   document.write(openText('COM-A','ERR2')+"</br>");
+  //   document.write(openText('COM_B','ERR2')+"</br>");
+  //   document.write(openText('COM_C','ERR2')+"</br>");
+  //   document.write(openText('COM_D','ERR2'));
+
+  //   var timeoutID;
+
+  // function delayedAlert() {
+  //   timeoutID = window.setTimeout(slowAlert, 2000);
+  // }
+
+  // function slowAlert() {
+  //   alert('That was really slow!');
+  // }
+
+  // function clearAlert() {
+  //   window.clearTimeout(timeoutID);
+  // }
+  // var a,b;
+  // (function(){
+  //     alert(a);
+  //     alert(b);
+  //     var a=b=3;
+  //     alert(a);
+  //     alert(b);
+  // })();
+  // alert(a);
+  // alert(b);
+  // var str = "Hellllo world";
+  // str = str.replace(/(l)\1/g, '$1');
+  // console.log(str)
+
+  // var arr = [];
+  // arr[0] = 0;
+  // arr[1] = 1;
+  // arr.foo = 'c';
+  // console.log(arr.length);
+  // console.log(arr);
+
+  // let user = {
+  //   name: "John",
+  //   age: 30,
+
+  //   sayHi() {
+  //     // alert( user.name ); // 导致错误
+  //   }
+
+  // };
+
+
+  // let admin = user;
+  // // user = null; // 重写让其更明显
+
+  // admin.sayHi(); // TypeError: 
+
+  // var a = 'w' 
+  // let obj = {
+  //   a: 'o',
+  //   print: function() {
+  //     console.log(this.a);
+  //   },
+  //   print2: () => { 
+  //     console.log(this.a);
+  //   }
+  // }
+  // let p = obj.print;
+  // let p2 = obj.print2;
+  // obj.print();
+  // obj.print2();
+  // p();
+  // p2();
+  // console.log(0xff ^ 33)
+
+  // console.log(null>0,null==0,null>=0,null!=0)
+  // var a = 1;
+  // function test(){
+  //     console.log(a)
+  // class a {}
+  // console.log(a)
+  // }
+  // test();
+
+  // function g (a) {
+  //   console.log(a)
+  //   return 23
+  // };
+  // var d=g(1,2,3,4,5,6,7)
+  // console.log(typeof g)
+
+  // function fn (value) {
+  //   console.log(arguments instanceof Array)// ...①
+  //   console.log(arguments.length)//...②
+  //   console.log(value)//...③
+  //   var arr=[...arguments]//...④
+  //   return arr
+  // }
+  // var ll=fn(1,2,3)
+
+  // obj.arr=1
+  // obj["arr"]
+  // obj["a"+"r"+"r"]
+  // obj{"arr"}
+  // var d=(function() {
+  //     var x=foo();
+  //     var foo=function foo() {
+  //         return "foobar"
+  //     };
+  //     return x;
+  // })();
+  // console.log(d)
+  // var a = 1;
+  // function test() {
+  //     console.log(a);
+  //     if(false) {
+  //         var a = 2;
+  //     }
+  // }
+  // test();
+  // var a = 10; 
+  // (function a() {
+  //     a = 20;
+  //     console.log(a); 
+  // })()
+  // class Phone{
+  //   constructor(price){
+  //     this.price = price;
+  //   }
+  //   // get price(){
+  //   //   return 999;
+  //   // }
+  // }
+  // var p = new Phone(888);
+  // console.log(p.price);
+
+  // var a = 4 >= 6 ||  0 || 9;
+  // console.log(a);
+
+  // let obj = {
+  //   num1: 117
+  // }
+  // let res = obj;
+  // obj.child = obj = { num2: 935 };
+  // var x = y = res.child.num2;
+  // console.log(obj.child);
+  // console.log(res.num1);
+  // console.log(y);
+  // console.log(isNaN('asa'))
+
+  // var F=function(){};
+  // Object.prototype.a=function(){};
+  // Function.prototype.b=function(){};
+  // var f=new F();
+  // alert(1==true)
+  // var foo = {n:1};
+  // (function(foo){
+  //     console.log(foo.n);
+  //     foo.n = 3;
+  //     var foo = {n:2};
+  //     console.log(foo.n);
+  // })(foo);
+  // console.log(foo.n);
+  // console.log(1);
+  // let a = setTimeout(() => {console.log(2)}, 0);
+  // console.log(3);
+  // Promise.resolve(4).then(b => {
+  //     console.log(b);
+  //     clearTimeout(a);
+  // });
+  // console.log(5);
+  // var a = 1;
+  // b = 2;
+  // eval('var c = 3');
+  // delete a;
+  // delete b;
+  // delete c;
+  // var a = 108; 
+  // console.log(parseInt(a))
+
+  // let obj = {
+  //   num1: 117
+  // }
+  // let res = obj;
+  // obj.child = { num2: 935 };
+  // console.log(obj);
+  // console.log(res);
+
+  // let obj = {
+  //   num1: 117
+  // }
+  // // let res = obj;
+  // // obj.child = obj = { num2: 935 };
+  // // console.log(obj);
+  // // console.log(res);
+  // obj.prototype.a=1
+
+  // var F=function(){};
+  // Object.prototype.a=function(){};
+  // Function.prototype .b=function(){};
+  // var f=new F();
+
+  // var foo = {n:1};
+  // (function(foo){
+  //     console.log(foo.n);
+  //     var foo = {n:2};
+  //     foo.n = 3;
+  //     console.log(foo.n);
+  // })(foo);
+  // console.log(foo.n);
+  // let array = [,1,,2,,3];
+  // array = array.map((i) => ++i)
+  // console.log(array)
+
+  // outer: for(let i=0;i<3;i++) {
+  //   for(let j=0;j<3;j++) {
+  //     let input=prompt(`Value at coords (${i},${j})`,'')
+  //     // 如果是空字符串或被取消，则中断并跳出这两个循环。
+  //     if(!input) break outer // (*)
+  //     // 用得到的值做些事……
+  //   }
+  // }
+  // alert('Done!')
+
+  // let user={
+  //   name: "John",
+  //   age: 30,
+  //   isAdmin: true
+  // }
+  // for(let key in user) {
+  //   // keys
+  //   alert(key)  // name, age, isAdmin
+  //   // 属性键的值
+  //   alert(user[key]) // John, 30, true
+  // }
+  // let codes={
+  //   "49": "Germany",
+  //   "41": "Switzerland",
+  //   "44": "Great Britain",
+  //   // ..,
+  //   "1": "USA"
+  // }
+
+  // for(let code in codes) {
+  //   alert(code) // 1, 41, 44, 49
+  // }
+  // let array=[1,'1',{}]
+  // // console.log(array.at(-1))
+  // array.
+  // let obj1={
+  //   a:1,
+  //   b:2,
+  //   c:3,
+  // }
+  // console.log(obj1.a,obj1[a])
+
+  // let a='1h'
+  // // let b=parseInt(a)
+  // let b=a.slice(0,1)
+  // ["Bilbo", "Gandalf", "Nazgul"].forEach((item, index, array) => {
+  //   alert(`${item} is at index ${index} in ${array}`);
+  // });
+  // [1, -2, 15, 2, 0, 8].sort(function(a, b) {
+  //   alert( a + " <> " + b );
+  //   return a - b;
+  // });
+  // let prices = {
+  //   banana: 1,
+  //   orange: 2,
+  //   meat: 4,
+  // };
+
+  // let doublePrices = Object.fromEntries(
+  //   // 将价格转换为数组，将每个键/值对映射为另一对
+  //   // 然后通过 fromEntries 再将结果转换为对象
+  //   Object.entries(prices).map(entry => [entry[0], entry[1] * 2])
+  // );
+
+  // alert(doublePrices.meat); // 8
+
+  // let range = {
+  //   from: 1,
+  //   to: 5
+  // };
+
+  // // 1. for..of 调用首先会调用这个：
+  // range[Symbol.iterator] = function() {
+
+  //   // ……它返回迭代器对象（iterator object）：
+  //   // 2. 接下来，for..of 仅与下面的迭代器对象一起工作，要求它提供下一个值
+  //   return {
+  //     current: this.from,
+  //     last: this.to,
+
+  //     // 3. next() 在 for..of 的每一轮循环迭代中被调用
+  //     next() {
+  //       // 4. 它将会返回 {done:.., value :...} 格式的对象
+  //       if (this.current <= this.last) {
+  //         return { done: false, value: this.current++ };
+  //       } else {
+  //         return { done: true };
+  //       }
+  //     }
+  //   };
+  // };
+
+  // // 现在它可以运行了！
+  // for (let num of range) {
+  //   alert(num); // 1, 然后是 2, 3, 4, 5
+  // }
+
+  // 只会提示输入姓氏
+  // let [name = prompt('name?'), surname = prompt('surname?')] = ["Julius"];
+
+  // alert(name);    // Julius（来自数组）
+  // alert(surname); // 你输入的值
+
+
+
+  // let title, width, height;
+
+  // // 这一行发生了错误
+  // {title, width, height} = {title: "Menu", width: 200, height: 100};
+
+  // // 现在就可以了
+  // ({title, width, height} = {title: "Menu", width: 200, height: 100});
+
+  // alert( title ); // Menu
+
+  // let ms = Date.parse('2012-01-26T13:51:50.417-07:00');
+
+  // 📁 cache.js
+  // let cache = new WeakMap();
+
+  // // 计算并记结果
+  // function process(obj) {
+  //   if (!cache.has(obj)) {
+  //     let result = /* calculate the result for */ obj;
+
+  //     cache.set(obj, result);
+  //   }
+
+  //   return cache.get(obj);
+  // }
+
+  // // 📁 main.js
+  // let obj = {/* some object */};
+
+  // let result1 = process(obj);
+  // let result2 = process(obj);
+
+  // // ……稍后，我们不再需要这个对象时：
+  // obj = null;
+
+  // // 无法获取 cache.size，因为它是一个 WeakMap，
+  // // 要么是 0，或即将变为 0
+  // // 当 obj 被垃圾回收，缓存的数据也会被清除
+  // console.log(1)
+  // let user = {
+  //   name: "John",
+  //   age: 30,
+
+  //   // toString() {
+  //   //   return `{name: "${this.name}", age: ${this.age}}`;
+  //   // }
+  // };
+
+  // // alert(user); // {name: "John", age: 30}
+  // console.log(user)
+
+  // let student = {
+  //   name: 'John',
+  //   age: 30,
+  //   isAdmin: false,
+  //   courses: ['html', 'css', 'js'],
+  //   spouse: null
+  // };
+
+  // let json = JSON.stringify(student);
+
+  // // alert(typeof json); // we've got a string!
+
+  // alert(json);
+  // console.log(json)
+  // 数字在 JSON 还是数字
+  // alert( JSON.stringify(1) ) // 1
+
+  // // 字符串在 JSON 中还是字符串，只是被双引号扩起来
+  // alert( JSON.stringify('test') ) // "test"
+
+  // alert( JSON.stringify(true) ); // true
+
+  // alert( JSON.stringify([1, 2, 3]) ); // [1,2,3]
+
+  // let user = {
+  //   name: "John",
+  //   age: 25,
+  //   roles: {
+  //     isAdmin: false,
+  //     isEditor: true
+  //   }
+  // };
+
+  // alert(JSON.stringify(user, null, 2));
+  // console.log(JSON.stringify(user, null,1))
+
+
+  // let json = `{
+  //   name: "John",                     // 错误：属性名没有双引号
+  //   "surname": 'Smith',               // 错误：值使用的是单引号（必须使用双引号）
+  //   'isAdmin': false                  // 错误：键使用的是单引号（必须使用双引号）
+  //   "birthday": new Date(2000, 2, 3), // 错误：不允许使用 "new"，只能是裸值
+  //   "friends": [0,1,2,3]              // 这个没问题
+  // }`;
+
+  // let company = { // 是同一个对象，简洁起见被压缩了
+  //   sales: [{name: 'John', salary: 1000}, {name: 'Alice', salary: 1600 }],
+  //   development: {
+  //     sites: [{name: 'Peter', salary: 2000}, {name: 'Alex', salary: 1800 }],
+  //     internals: [{name: 'Jack', salary: 1300}]
+  //   }
+  // };
+
+  // // 用来完成任务的函数
+  // function sumSalaries(department) {
+  //   if (Array.isArray(department)) { // 情况（1）
+  //     return department.reduce((prev, current) => prev + current.salary, 0); // 求数组的和
+  //   } else { // 情况（2）
+  //     let sum = 0;
+  //     for (let subdep of Object.values(department)) {
+  //       sum += sumSalaries(subdep); // 递归调用所有子部门，对结果求和
+  //     }
+  //     return sum;
+  //   }
+  // }
+
+  // alert(sumSalaries(company)); // 7700
+
+  // function ask (question,...handlers) {
+
+  //   let isYes=confirm(question)
+
+  //   for(let handler of handlers) {
+  //     console.log('length',handler.length)
+  //     if(handler.length==0) {
+  //       if(isYes) handler()
+  //     } else {
+  //       handler(isYes)
+  //     }
+  //   }
+
+  // }
+
+  // // // 对于肯定的回答，两个 handler 都会被调用
+  // // // 对于否定的回答，只有第二个 handler 被调用
+  // ask("Question?",() => alert('You said yes'),result => alert(result))
+// function nothing(){}
+// function sum(a) {
+
+// let currentSum = a;
+
+// function f(b) {
+//   currentSum += b;
+//   return f;
+// }
+
+// f.toString = function() {
+//   return currentSum;
+// };
+
+// return f;
+// }
+
+// alert( sum(1)(2) ); // 3
+// alert( sum(5)(-1)(2) ); // 6
+// alert( sum(6)(-1)(-2)(-3) ); // 0
+// alert( sum(0)(1)(2)(3)(4)(5) ); // 15
+
+
+// if (false) {
+//   var test = true; // 使用 "var" 而不是 "let"
+// }
+
+// alert(test); // true，变量在 if 结束后仍存在
+
+// Error: Invalid property descriptor.
+// let user = {
+//   get name() {
+//     return this._name;
+//   },
+
+//   set name(value) {
+//     if (value.length < 4) {
+//       alert("Name is too short, need at least 4 characters");
+//       return;
+//     }
+//     this._name = value;
+//   }
+// };
+
+// user.name = "Pete";
+// alert(user._name); // Pete
+// console.log(user)
+
+// user.name = ""; // Name 太短了……
+// let user = {
+//   name: "John"
+// };
+
+// let descriptor = Object.getOwnPropertyDescriptor(user, 'name');
+
+// alert( JSON.stringify(descriptor, null, 2 ) );
+
+// class User {
+//   constructor() {}
+// }
+
+// // alert(User); // class User { ... }
+// console.log(User.prototype)
+// for (let item in User)
+//   console.log(item)
+// class User {
+//   name = prompt("Name, please?", "John");
+// }
+
+// let user = new User();
+// alert(user.name); // John
+
+
+// class Button {
+//   constructor(value) {
+//     this.value = value;
+//   }
+
+//   click() {
+//     alert(this.value);
+//   }
+// }
+
+// let button = new Button("hello");
+
+// // setTimeout(button.click, 1000); // undefined
+// button.click()
+
+// class MyClass {
+//   prop = value; // 属性
+
+//   constructor(...) { // 构造器
+//     // ...
+//   }
+
+//   method(...) {} // method
+
+//   get something(...) {} // getter 方法
+//   set something(...) {} // setter 方法
+
+//   [Symbol.iterator]() {} // 有计算名称（computed name）的方法（此处为 symbol）
+//   // ...
+// }
+
+let auio77798sdfjg=1;
+
+// let eventMixin = {
+//   /**
+//    * 订阅事件，用法：
+//    *  menu.on('select', function(item) { ... }
+//   */
+//   on(eventName, handler) {
+//     if (!this._eventHandlers) this._eventHandlers = {};
+//     if (!this._eventHandlers[eventName]) {
+//       this._eventHandlers[eventName] = [];
+//     }
+//     this._eventHandlers[eventName].push(handler);
+//   },
+
+//   /**
+//    * 取消订阅，用法：
+//    *  menu.off('select', handler)
+//    */
+//   off(eventName, handler) {
+//     let handlers = this._eventHandlers?.[eventName];
+//     if (!handlers) return;
+//     for (let i = 0; i < handlers.length; i++) {
+//       if (handlers[i] === handler) {
+//         handlers.splice(i--, 1);
+//       }
+//     }
+//   },
+
+//   /**
+//    * 生成具有给定名称和数据的事件
+//    *  this.trigger('select', data1, data2);
+//    */
+//   trigger(eventName, ...args) {
+//     if (!this._eventHandlers?.[eventName]) {
+//       return; // 该事件名称没有对应的事件处理程序（handler）
+//     }
+
+//     // 调用事件处理程序（handler）
+//     this._eventHandlers[eventName].forEach(handler => handler.apply(this, args));
+//   }
+// };
+
+
+// // 创建一个 class
+// class Menu {
+//   choose(value) {
+//     this.trigger("select", value);
+//   }
+// }
+// // 添加带有事件相关方法的 mixin
+// Object.assign(Menu.prototype, eventMixin);
+
+// let menu = new Menu();
+
+// // 添加一个事件处理程序（handler），在被选择时被调用：
+// menu.on("select", value => alert(`Value selected: ${value}`));
+
+// // 触发事件 => 运行上述的事件处理程序（handler）并显示：
+// // 被选中的值：123
+// menu.choose("123");
+
+
+class Animal {
+  name = 'animal';
+
+  constructor() {
+    alert(this.name); // (*)
+  }
+}
+
+class Rabbit extends Animal {
+  name1 = 'rabbit';
+}
+
+new Animal(); // animal
+new Rabbit(); // animal
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>
