@@ -663,24 +663,42 @@ let auio77798sdfjg=1;
 // menu.choose("123");
 
 
-class Animal {
-  name = 'animal';
+// class Animal {
+//   name = 'animal';
 
-  constructor() {
-    alert(this.name); // (*)
+//   constructor() {
+//     alert(this.name); // (*)
+//   }
+// }
+
+// class Rabbit extends Animal {
+//   name1 = 'rabbit';
+// }
+
+// new Animal(); // animal
+// new Rabbit(); // animal
+
+
+
+function readData() {
+  let json = '{ "age": 30 }';
+
+  try {
+    // ...
+    blabla(); // error!
+  } catch (err) {
+    // ...
+    if (!(err instanceof SyntaxError)) {
+      throw err; // 再次抛出（不知道如何处理它）
+    }
   }
 }
 
-class Rabbit extends Animal {
-  name1 = 'rabbit';
+try {
+  readData();
+} catch (err) {
+  alert( "External catch got: " + err ); // 捕获了它！
 }
-
-new Animal(); // animal
-new Rabbit(); // animal
-
-
-
-
 
 
 
