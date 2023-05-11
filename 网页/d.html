@@ -15,18 +15,150 @@
 <script type="text/javascript">
 
 
-try {
-  lalala; // error, variable is not defined!
-} catch (err) {
-  alert(err.name); // ReferenceError
-  alert(err.message); // lalala is not defined
-  alert(err.stack); // ReferenceError: lalala is not defined at (...call stack)
+// try {
+//   lalala; // error, variable is not defined!
+// } catch (err) {
+//   alert(err.name); // ReferenceError
+//   alert(err.message); // lalala is not defined
+//   alert(err.stack); // ReferenceError: lalala is not defined at (...call stack)
 
-  // 也可以将一个 error 作为整体显示出来
-  // error 信息被转换为像 "name: message" 这样的字符串
-  alert(err); // ReferenceError: lalala is not defined
-  console.log(err.stack,'分割线',err)
-}
+//   // 也可以将一个 error 作为整体显示出来
+//   // error 信息被转换为像 "name: message" 这样的字符串
+//   alert(err); // ReferenceError: lalala is not defined
+//   console.log(err.stack,'分割线',err)
+// }
+
+
+// fetch('/article/promise-chaining/user.json')
+//   // 当远程服务器响应时，下面的 .then 开始执行
+//   .then(function(response) {
+//     // 当 user.json 加载完成时，response.text() 会返回一个新的 promise
+//     // 该 promise 以加载的 user.json 为 result 进行 resolve
+//     return response.text();
+//   })
+//   .then(function(text) {
+//     // ……这是远程文件的内容
+//     alert(text); // {"name": "iliakan", "isAdmin": true}
+//   });
+// 发送一个对 user.json 的请求
+// fetch('https://www.baidu.com/')
+//   // 将其加载为 JSON
+//   .then(response => response.json())
+//   // 发送一个到 GitHub 的请求
+//   .then(user => fetch(`https://api.github.com/users/${user.name}`))
+//   // 将响应加载为 JSON
+//   .then(response => response.json())
+//   // 显示头像图片（githubUser.avatar_url）3 秒（也可以加上动画效果）
+//   .then(githubUser => {
+//     let img = document.createElement('img');
+//     img.src = githubUser.avatar_url;
+//     img.className = "promise-avatar-example";
+//     document.body.append(img);
+
+//     setTimeout(() => img.remove(), 3000); // (*)
+//   });
+
+
+// let ceuiuuju = 1
+// class Thenable {
+//   constructor(num) {
+//     this.num = num;
+//   }
+//   then(resolve, reject) {
+//     alert(resolve);
+//     ceuiuuju = 999
+//     // 1000ms 后使用 this.num*2 进行 resolve
+//     setTimeout(() => resolve(this.num * 2), 1000); // (*)
+//   }
+// }
+
+// async function f() {
+//   // 等待 1 秒，之后 result 变为 2
+//   let result = await new Thenable(1);
+//   alert(result);
+//   console.log(ceuiuuju)
+// }
+
+// f();
+// let bb=1
+// function f1(){
+//   return 22
+// }
+// async function f(){
+//   bb =  await f1
+// }
+
+
+// function* generateSequence() {
+//   yield 1;
+//   yield 2;
+//   return 3;
+// }
+
+// // "generator function" 创建了一个 "generator object"
+// let generator = generateSequence();
+// alert(generator); // [object Generator]
+// console.log(generator)
+
+// function* generateSequence() {
+//   yield 1;
+//   yield 2;
+//   return 3;
+// }
+
+// let generator = generateSequence();
+
+// for(let value of generator) {
+//   alert(value); // 1，然后是 2
+// }
+
+// let ddd = "1".padStart(3, "0");   // 001
+// console.log(ddd)
+
+// function* generateSequence(start, end) {
+//   for (let i = start; i <= end; i++) yield i;
+// }
+
+// function* generatePasswordCodes() {
+
+//   // 0..9
+//   yield* generateSequence(48, 57);
+
+//   // A..Z
+//   yield* generateSequence(65, 90);
+
+//   // a..z
+//   yield* generateSequence(97, 122);
+
+// }
+
+// let str1 = '';
+
+// for(let code of generatePasswordCodes()) {
+//   str1 += String.fromCharCode(code);
+// }
+
+// alert(str1); // 0..9A..Za..z
+// let str2 = generatePasswordCodes()
+// console.log(str2)
+
+// let str3=generateSequence(26,78)
+// console.log('str3',str3)
+
+
+// function* gen() {
+//   // 向外部代码传递一个问题并等待答案
+//   let result = yield "2 + 2 = ?"; // (*)
+
+//   alert(result);
+// }
+
+// let generator = gen();
+
+// let question = generator.next().value; // <-- yield 返回的 value
+
+// generator.next(4); // --> 将结果传递到 generator 中
+
 
 
 

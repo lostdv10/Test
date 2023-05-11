@@ -1,25 +1,124 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <!-- add mocha css, to show results -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.css">
   <!-- add mocha framework code -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js"></script>
   <script>
-    mocha.setup('bdd'); // minimal setup
+    mocha.setup('bdd') // minimal setup
   </script>
   <!-- add chai -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.js"></script>
+
+
+
+
   <script>
     // chai has a lot of stuff, let's make assert global
-    let assert = chai.assert;
+    let assert=chai.assert
+
+    // function delay (f,ms) {
+    //   return function() {
+    //     setTimeout(() => f.apply(this,arguments),ms)
+    //   }
+    // }
+
+    // function sayHi (user) {
+    //   alert(`Hello, ${user}!`)
+    // }
+
+    // alert(sayHi.length) // 1（函数的 length 是函数声明中的参数个数）
+
+    // sayHi=delay(sayHi,3000)
+
+    // alert(sayHi.length) // 0（在包装器声明中，参数个数为 0)
+
+
+
+
+    // let user={
+    //   _name: "Guest",
+    //   get name () {
+    //     return this._name
+    //   }
+    // }
+
+    // // let userProxy=new Proxy(user,{
+    // //   get (target,prop,receiver) {
+    // //     return target[prop] // (*) target = user
+    // //   }
+    // // })
+
+    // let admin={
+    //   __proto__: user,
+    //   _name: "Admin"
+    // }
+
+    // // 期望输出：Admin
+    // alert(admin.name) // 输出：Guest (?!?)
+
+    // let user={
+    //   _name: "Guest",
+    //   get name () {
+    //     return this._name
+    //   }
+    // }
+
+    // let userProxy=new Proxy(user,{
+    //   get (target,prop,receiver) { // receiver = admin
+    //     return Reflect.get(target,prop,receiver) // (*)
+    //   }
+    // })
+
+
+    // let admin={
+    //   __proto__: userProxy,
+    //   _name: "Admin"
+    // }
+
+    // alert(admin.name) // Admin
+
+
+    // let map=new Map()
+
+    // let proxy=new Proxy(map,{})
+
+    // proxy.set('test',1) // Error
+
+    class User {
+      #name="Guest";
+
+      getName () {
+        return this.#name
+      }
+    }
+
+    let user=new User()
+
+    user=new Proxy(user,{})
+
+    alert(user.getName()) // Error
+
+
   </script>
+
+
+
+
+
+
+
+
+
+
 </head>
 
 <body>
 
   <script>
-    function pow(x, n) {
+    function pow (x,n) {
       /* function code is to be written, empty now */
     }
   </script>
@@ -31,10 +130,40 @@
   <div id="mocha"></div>
 
   <!-- run tests! -->
-  <script>
-    
-    mocha.run();
+  <!-- <script type="module">
+    import {sayHi} from './script/say.js'
+    document.body.innerHTML=sayHi('John')
+    console.log(import.meta)
+    // mocha.run();
+
+
+
+
+
+  </script> -->
+
+
+  <!-- <script type="module">
+    alert(typeof button) // object：脚本可以“看见”下面的 button
+  // 因为模块是被延迟的（deferred，所以模块脚本会在整个页面加载完成后才运行
+  </script> -->
+
+  <!-- 相较于下面这个常规脚本： -->
+
+  <!-- <script>
+    alert(typeof button) // button 为 undefined，脚本看不到下面的元素
+  // 常规脚本会立即运行，常规脚本的运行是在在处理页面的其余部分之前进行的
   </script>
+
+  <button id="button">Button</button> -->
+
+
+
+
+
+
+
+
 </body>
 
 </html>
