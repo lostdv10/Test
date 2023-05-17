@@ -11,12 +11,13 @@
 <body>
   <button id="btn1">测试</button>
   <button id="btn2">测试</button>
+  <button onclick="count()">bigtask</button>
 
   <button id="elem" onclick="console.log(event);alert('Click!');">Autoclick</button>
 
 
-
-
+  <!-- <img id="img" src="https://en.js.cx/clipart/train.gif?speed=1&cache=0"> -->
+  <div id="progress"></div>
 
 
 
@@ -173,7 +174,7 @@
   // });
 
 
-  let bigint=-1213213278628763281n
+  let bigint=-1213213278628763281
   console.log(bigint)
   // alert( '𝒳'.length ); // 2, 大写的数学符号 X
   // alert( '😂'.length ); // 2, 笑哭的表情
@@ -192,8 +193,106 @@
 
   // elem.dispatchEvent(new CustomEvent("hello",{
   //   detail: {name: "John"}
-    
+
   // }));
+
+  function ready () {
+    // alert('DOM is ready')
+
+    // // 图片目前尚未加载完成（除非已经被缓存），所以图片的大小为 0x0
+    // alert(`Image size: ${img.offsetWidth}x${img.offsetHeight}`)
+  }
+
+  document.addEventListener("DOMContentLoaded",ready)
+
+
+
+
+  // function count () {
+  //   let i=0
+
+  //   let start=Date.now()
+
+  //   function count () {
+
+  //     // 做繁重的任务的一部分 (*)
+  //     do {
+  //       i++
+  //       console.log(i)
+  //     } while(i%1e6!=0)
+
+  //     if(i==1e9) {
+  //       alert("Done in "+(Date.now()-start)+'ms')
+  //     } else {
+  //       setTimeout(count) // 安排（schedule）新的调用 (**)
+  //     }
+  //     count()
+  //   }
+
+
+  // }
+  // function bigtask () {
+
+  // }
+
+  let i=0
+
+  function count () {
+
+    // 做繁重的任务的一部分 (*)
+    // do {
+    //   i++
+    //   progress.innerHTML=i
+    // } while(i%1e3!=0)
+
+    // if(i<1e5) {
+    //   setTimeout(count)
+    // }
+    // count()
+  }
+
+  
+async()=>{
+  let url='https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits'
+  let response=await fetch(url)
+
+  let commits=await response.json() // 读取 response body，并将其解析为 JSON 格式
+
+  console.log(commits[0].author.login);
+
+}
+
+fetch('https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits')
+  .then(response =>{console.log(response);return response.json()})
+  .then(commits => console.log(commits,commits[0].author.login));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
 
 <style>
