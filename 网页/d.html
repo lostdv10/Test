@@ -24,7 +24,7 @@
     src="data:image/png;base64,R0lGODlhDAAMAKIFAF5LAP/zxAAAANyuAP/gaP///wAAAAAAACH5BAEAAAUALAAAAAAMAAwAAAMlWLPcGjDKFYi9lxKBOaGcF35DhWHamZUW0K4mAbiwWtuf0uxFAgA7">
   <input type="file" onchange="showFile(this)">
 
-
+  <p>我傻</p>
 
 
 
@@ -269,75 +269,88 @@
   }
 
 
-  async () => {
-    let url='https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits'
-    let response=await fetch(url)
+  // async () => {
+  //   let url='https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits'
+  //   let response=await fetch(url)
 
-    let commits=await response.json() // 读取 response body，并将其解析为 JSON 格式
+  //   let commits=await response.json() // 读取 response body，并将其解析为 JSON 格式
 
-    console.log(commits[0].author.login)
+  //   console.log(commits[0].author.login)
 
-  }
+  // }
 
-  fetch('https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits')
-    .then(response => {console.log(response); return response.json()})
-    .then(commits => console.log(commits,commits[0].author.login))
-
-
-
-  let blob=new Blob(["Hello, world!"],{type: 'text/plain'})
-
-  link.href=URL.createObjectURL(blob)
-
-  function showFile (input) {
-    let file=input.files[0]
-
-    alert(`File name: ${file.name}`) // 例如 my.png
-    alert(`Last modified: ${file.lastModified}`) // 例如 1552830408824
-  }
+  // fetch('https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits')
+  //   .then(response => {console.log(response); return response.json()})
+  //   .then(commits => console.log(commits,commits[0].author.login))
 
 
 
-async function process1(){
-  // Step 1：启动 fetch，并获得一个 reader
-let response = await fetch('https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits?per_page=1');
+  // let blob=new Blob(["Hello, world!"],{type: 'text/plain'})
 
-const reader = response.body.getReader();
+  // link.href=URL.createObjectURL(blob)
 
-// Step 2：获得总长度（length）
-const contentLength = +response.headers.get('Content-Length');
+  // function showFile (input) {
+  //   let file=input.files[0]
 
-// Step 3：读取数据
-let receivedLength = 0; // 当前接收到了这么多字节
-let chunks = []; // 接收到的二进制块的数组（包括 body）
-while(true) {
-  const {done, value} = await reader.read();
+  //   alert(`File name: ${file.name}`) // 例如 my.png
+  //   alert(`Last modified: ${file.lastModified}`) // 例如 1552830408824
+  // }
 
-  if (done) {
-    break;
-  }
 
-  chunks.push(value);
-  receivedLength += value.length;
 
-  console.log(`Received ${receivedLength} of ${contentLength}`)
-}
+  // async function process1 () {
+  //   // Step 1：启动 fetch，并获得一个 reader
+  //   let response=await fetch('https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits?per_page=1')
 
-// Step 4：将块连接到单个 Uint8Array
-let chunksAll = new Uint8Array(receivedLength); // (4.1)
-let position = 0;
-for(let chunk of chunks) {
-  chunksAll.set(chunk, position); // (4.2)
-  position += chunk.length;
-}
+  //   const reader=response.body.getReader()
 
-// Step 5：解码成字符串
-let result = new TextDecoder("utf-8").decode(chunksAll);
+  //   // Step 2：获得总长度（length）
+  //   const contentLength=+response.headers.get('Content-Length')
 
-// 我们完成啦！
-let commits = JSON.parse(result);
-alert(commits[0].author.login);
-}
+  //   // Step 3：读取数据
+  //   let receivedLength=0 // 当前接收到了这么多字节
+  //   let chunks=[] // 接收到的二进制块的数组（包括 body）
+  //   while(true) {
+  //     const {done,value}=await reader.read()
+
+  //     if(done) {
+  //       break
+  //     }
+
+  //     chunks.push(value)
+  //     receivedLength+=value.length
+
+  //     console.log(`Received ${receivedLength} of ${contentLength}`)
+  //   }
+
+  //   // Step 4：将块连接到单个 Uint8Array
+  //   let chunksAll=new Uint8Array(receivedLength) // (4.1)
+  //   let position=0
+  //   for(let chunk of chunks) {
+  //     chunksAll.set(chunk,position) // (4.2)
+  //     position+=chunk.length
+  //   }
+
+  //   // Step 5：解码成字符串
+  //   let result=new TextDecoder("utf-8").decode(chunksAll)
+
+  //   // 我们完成啦！
+  //   let commits=JSON.parse(result)
+  //   alert(commits[0].author.login)
+  // }
+
+  // let prev=performance.now()
+  // let times=0
+
+  // requestAnimationFrame(function measure (time) {
+  //   document.body.insertAdjacentHTML("beforeEnd",Math.floor(time-prev)+" ")
+  //   prev=time
+
+  //   if(times++<10) requestAnimationFrame(measure)
+  // })
+
+
+
 
 
 
@@ -358,7 +371,26 @@ alert(commits[0].author.login);
 
 
 </script>
-
+<script>
+  customElements.define('user-card', class extends HTMLElement {
+    connectedCallback() {
+      this.attachShadow({mode: 'open'});
+      this.shadowRoot.innerHTML = `
+        <div>Name:
+          <slot name="username"></slot>
+        </div>
+        <div>Birthday:
+          <slot name="birthday"></slot>
+        </div>
+      `;
+    }
+  });
+  </script>
+  
+  <user-card>
+    <span slot="username">John Smith</span>
+    <span slot="birthday">01.01.2001</span>
+  </user-card>
 <style>
 
 
@@ -366,4 +398,115 @@ alert(commits[0].author.login);
 </style>
 
 
+</html>
+
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    progress {
+      width: 5%;
+    }
+  </style>
+  
+</head>
+
+<body>
+
+
+  <progress id="elem"></progress>
+
+  <script>
+
+function animate({duration, draw, timing}) {
+
+let start = performance.now();
+
+requestAnimationFrame(function animate(time) {
+  let timeFraction = (time - start) / duration;
+  if (timeFraction > 1) timeFraction = 1;
+
+  let progress = timing(timeFraction)
+
+  draw(progress);
+
+  if (timeFraction < 1) {
+    requestAnimationFrame(animate);
+  }
+
+});
+}
+    elem.onclick = function() {
+      animate({
+        duration: 1000,
+        timing: function(timeFraction) {
+          return timeFraction;
+        },
+        draw: function(progress) {
+          elem.style.width = progress * 100 + '%';
+        }
+      });
+    };
+
+
+
+
+
+
+    
+  </script>
+  <script>
+    class TimeFormatted extends HTMLElement { // (1)
+    
+      connectedCallback() {
+        let date = new Date(this.getAttribute('datetime') || Date.now());
+    
+        this.innerHTML = new Intl.DateTimeFormat("default", {
+          year: this.getAttribute('year') || undefined,
+          month: this.getAttribute('month') || undefined,
+          day: this.getAttribute('day') || undefined,
+          hour: this.getAttribute('hour') || undefined,
+          minute: this.getAttribute('minute') || undefined,
+          second: this.getAttribute('second') || undefined,
+          timeZoneName: this.getAttribute('time-zone-name') || undefined,
+        }).format(date);
+      }
+    
+    }
+    
+    customElements.define("time-formatted", TimeFormatted); // (2)
+    </script>
+    
+    <!-- (3) -->
+    <time-formatted datetime="2019-12-01"
+      year="numeric" month="long" day="numeric"
+      hour="numeric" minute="numeric" second="numeric"
+      time-zone-name="short"
+    ></time-formatted>
+
+
+</body>
+
+<style>
+  /* 文档样式对 #elem 内的 shadow tree 无作用 (1) */
+  p { color: red; }
+</style>
+
+<div id="elem"></div>
+
+<script>
+  elem.attachShadow({mode: 'open'});
+    // shadow tree 有自己的样式 (2)
+  elem.shadowRoot.innerHTML = `
+    <style> p { font-weight: bold; } </style>
+    <p>Hello, John!</p>
+  `;
+
+  // <p> 只对 shadow tree 里面的查询可见 (3)
+  alert(document.querySelectorAll('p').length); // 0
+  alert(elem.shadowRoot.querySelectorAll('p').length); // 1
+</script>
 </html>
